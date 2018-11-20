@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<input [(ngModel)]="searchTerm" autofocus>
+<button (click)="search()">search</button>
+<button (click)="clear()">clear</button>
+<button *ngIf="showPrefs" (click)="togglePrefs()">Hide Preferences</button>
+<button *ngIf="!showPrefs" (click)="togglePrefs()">Show Preferences</button>
+<a routerLink="/history" (click)=clear()>history</a>
+</nav>
+<app-preferences *ngIf="showPrefs" [closeParent]=getCloseParent()></app-preferences>
+<app-wiki-results [term]=searchTerm></app-wiki-results>

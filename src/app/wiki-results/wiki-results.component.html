@@ -1,0 +1,19 @@
+<!-- 
+<div *ngIf="results!=undefined">
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let result of results">
+			<h1>{{result["title"]}}</h1>
+			<div [innerHTML]="result['snippet']"></div>
+		</li>
+	</ul>
+</div>
+<div *ngIf="ext!=undefined" [innerHTML]="ext"></div>
+-->
+<div *ngIf="results!=undefined">
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let result of results">
+			<app-wiki-section [section]="result"></app-wiki-section>
+		</li>
+	</ul>
+</div>
+<div *ngIf="ext!=undefined" [innerHTML]="ext"></div>

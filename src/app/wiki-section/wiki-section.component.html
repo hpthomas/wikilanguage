@@ -1,0 +1,17 @@
+<!-- TODO this is ugly but works, custom tag name? -->
+<div class="row">
+	<div class="col-6">
+		<h1 *ngIf="this.section.tag=='H1'" [innerHTML]="this.section.html"></h1>
+		<h2 *ngIf="this.section.tag=='H2'" [innerHTML]="this.section.html"></h2>
+		<h3 *ngIf="this.section.tag=='H3'" [innerHTML]="this.section.html"></h3>
+		<h4 *ngIf="this.section.tag=='H4'" [innerHTML]="this.section.html"></h4>
+		<p *ngIf="this.section.tag=='P'" [innerHTML]="this.section.html"></p>
+	</div>
+	<div class="col-1">
+		<button *ngIf="this.translated==undefined" (click)="translate()">translate</button>
+		<button *ngIf="this.translated!=undefined" (click)="hide()">hide</button>
+	</div>
+	<div class="col-4">
+		<p *ngIf="this.translated!=undefined" [innerText]="this.translated"></p>
+	</div>
+</div>

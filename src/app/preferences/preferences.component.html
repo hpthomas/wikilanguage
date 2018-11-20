@@ -1,0 +1,16 @@
+  <div class="form-group col-6">
+    <label> Source Language (articles will appear in this language):</label>
+    <select class="form-control" name="source" [(ngModel)]="fullSource">
+      <option *ngFor="let lang of languages" [value]=lang>{{lang}}</option>
+    </select>
+
+    <label > Target Language (articles will be translated into this language):</label>
+    <select class="form-control" name="target" [(ngModel)]="fullTarget">
+      <option *ngFor="let lang of languages" [value]=lang>{{lang}}</option>
+    </select>
+
+
+    <p *ngIf="pairSame">Error: Please select two different languages</p>
+    <button (click)="save()">save</button>
+    <button (click)="cancel()">cancel</button>
+  </div>

@@ -1,0 +1,7 @@
+<div *ngIf="searches!=undefined">
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let item of searches">
+			{{item[0]}}	: {{item[1]}}
+		</li>
+	</ul>
+</div>
