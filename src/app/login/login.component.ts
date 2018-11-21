@@ -12,6 +12,8 @@ import { map, take, tap } from 'rxjs/operators';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  justRegistered:boolean = false;
+  regFailureMessage:string = null;
   constructor(
     private loginService: LoginService,
     private router: Router,
@@ -32,6 +34,22 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  register():void {
+    if (this.validateForm(this.email, this.password)) {
+    	this.loginService.newUser(this.email, this.password)
+    	.then(s=>{
+    		console.log("new user success");
+    		this.justRegistered=true;
+    		this.regFailureMessage=null;
+    	})
+    	.catch(e=>{
+    		console.log("new user error");
+    		console.log(e.message);
+    		this.regFailureMessage=e.message;
+    	});
+    }
   }
 
   onLoginEmail(): void {

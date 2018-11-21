@@ -1,4 +1,4 @@
-<form (ngSubmit)="onLoginEmail()">
+<form >
   <div class="form-group">
     <label for="email">Email</label>
     <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="email">
@@ -9,6 +9,9 @@
     <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
   </div>
 
-  <button type="submit" class="btn btn-success">Log In</button>
-  <button (click)=guest() type="submit" class="btn btn-warning">Continue as Guest</button>
+  <button (click)=onLoginEmail() class="btn btn-success">Log In</button>
+  <button (click)=guest() class="btn btn-warning">Continue as Guest</button>
+  <button (click)=register() class="btn btn-info">Register New Account </button>
+  <p *ngIf="justRegistered">Registration success! You may log in now</p>
+  <p *ngIf="regFailureMessage!=null">Unsuccessful registration: {{this.regFailureMessage}}</p>
 </form>

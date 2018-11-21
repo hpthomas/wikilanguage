@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
   }
   ngOnInit() {
   	// don't init db until logged in
-  	console.log("init vb");
+  	console.log("init db");
   	this.db.init();
   }
   // pass this function to child so prefs can be hidden after save

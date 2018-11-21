@@ -20,13 +20,13 @@ export class DatabaseService {
   items: any = null;
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
   init() {
-    console.log("const");
     this.afAuth.authState.subscribe(user => {
       if(user) { 
-        console.log("it cam eback");
         this.userId = user.uid;
         this.getPrefs().valueChanges()
         .subscribe(data=>{
+          console.log("got  prefs");
+          console.log(data[0] + "->" + data[1]);
           this.prefs=new Prefs(<string>data[0],<string>data[1]);
         })
       }

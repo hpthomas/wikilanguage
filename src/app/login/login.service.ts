@@ -41,8 +41,11 @@ export class LoginService {
       }
     });
   }
-
+  newUser(email:string, password:string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+  }  
   loginWithEmail(email: string, password: string) {
+    console.log("Logging in with: " + email + "," + password);
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((auth) => {
         console.log(auth.user.uid);
